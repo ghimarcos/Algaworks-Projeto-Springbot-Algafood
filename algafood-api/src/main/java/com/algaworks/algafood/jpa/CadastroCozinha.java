@@ -6,6 +6,7 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 import com.algaworks.algafood.domain.model.Cozinha;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 
 @Component
@@ -22,5 +23,12 @@ public class CadastroCozinha {
 			
 		return query.getResultList(); /*Está me retornando os Resultados da Lista Cozinha*/
 		
+	}
+	
+	@Transactional /*Esse metodo é executado dentro de uma transação*/
+	public Cozinha adicionar(Cozinha cozinha) {
+		/*Adicionar Cozinha*/
+		return manager.merge(cozinha);/*Passa a instancia persistida ao construtor, ou seja, passa ID e todos os elementos da classe cozinha
+		para o construtor adicionar(Cozinha cozinha)*/
 	}
 }
