@@ -25,6 +25,10 @@ public class CadastroCozinha {
 		
 	}
 	
+	public Cozinha buscar(Long id) {
+		return manager.find(Cozinha.class, id); /*Esse metodo manager.find, faz um select e me tras o id*/
+	}
+	
 	@Transactional /*Esse metodo é executado dentro de uma transação*/
 	public Cozinha adicionar(Cozinha cozinha) {
 		/*Adicionar Cozinha*/
