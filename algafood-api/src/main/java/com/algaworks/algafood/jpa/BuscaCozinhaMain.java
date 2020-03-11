@@ -19,7 +19,7 @@ public class BuscaCozinhaMain {
 		
 		CadastroCozinha cadastroCozinha = applicationContext.getBean(CadastroCozinha.class);/*Pega um Bean Spring*/
 		
-		Cozinha cozinha = cadastroCozinha.buscar(1L); /*Instancia o metodo de busca do manager, passando ID 1L  (L = long)*/
+		Cozinha cozinha = cadastroCozinha.buscar(2L); /*Instancia o metodo de busca do manager, passando ID 1L  (L = long*/
 		
 			/*Print que trás o nome das cozinhas*/
 			System.out.println(cozinha.getNome());
