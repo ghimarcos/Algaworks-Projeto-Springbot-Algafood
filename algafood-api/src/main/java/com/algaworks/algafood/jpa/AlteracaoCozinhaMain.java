@@ -10,7 +10,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import com.algaworks.algafood.AlgafoodApiApplication;
 import com.algaworks.algafood.domain.model.Cozinha;
 
-public class InclusaoCozinhaMain {
+public class AlteracaoCozinhaMain {
 
 	public static void main(String[] args) {
 		ApplicationContext applicationContext = new SpringApplicationBuilder(AlgafoodApiApplication.class)
@@ -20,16 +20,10 @@ public class InclusaoCozinhaMain {
 		CadastroCozinha cadastroCozinha = applicationContext.getBean(CadastroCozinha.class);/*Pega um Bean Spring*/
 		
 		
-		Cozinha cozinha1 = new Cozinha();
-		cozinha1.setNome("Brasileira");
+		Cozinha cozinha = new Cozinha();
+		cozinha.setId(1L);
+		cozinha.setNome("Brasileira");
 		
-		Cozinha cozinha2 = new Cozinha();
-		cozinha2.setNome("Japonesa");			/*Instancia uma nova cozinha, e seta o nome dela*/
-		
-		cozinha1 = cadastroCozinha.salvar(cozinha1);
-		cozinha2 = cadastroCozinha.salvar(cozinha2); /*Adiciona as cozinhas ao banco*/
-		
-		System.out.printf("%d - %s \n", cozinha1.getId(), cozinha1.getNome());
-		System.out.printf("%d - %s \n", cozinha2.getId(), cozinha2.getNome()); /*Aqui é só para ver as cozinhas que foram adicionadas*/
+		cadastroCozinha.salvar(cozinha);
 	}
 }

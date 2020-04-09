@@ -30,9 +30,18 @@ public class CadastroCozinha {
 	}
 	
 	@Transactional /*Esse metodo é executado dentro de uma transação*/
-	public Cozinha adicionar(Cozinha cozinha) {
+	public Cozinha salvar(Cozinha cozinha) {
 		/*Adicionar Cozinha*/
 		return manager.merge(cozinha);/*Passa a instancia persistida ao construtor, ou seja, passa ID e todos os elementos da classe cozinha
 		para o construtor adicionar(Cozinha cozinha)*/
+	}
+	
+	@Transactional /*tem que ser marcado como transactional, para dizer que ele é instanciado dentro de uma transição*/
+	public void remover(Cozinha cozinha) {
+		cozinha = buscar(cozinha.getId()); /*Primeiro o método remover tem que buscar oque irá remover do banco, no caso essa busca será pelo ID*/
+		
+		manager.remove(cozinha);/*Instancia o metodo de remoção no banco com o maneger*/
+		
+		
 	}
 }
