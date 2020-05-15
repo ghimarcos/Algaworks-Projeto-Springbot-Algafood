@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -29,5 +30,10 @@ public class Restaurante {
 
 	@Column(name = "taxa_frete") /* Coluna na tabela */
 	private BigDecimal taxaFrete; /* Coluna na tabela do tipo BigDecimal */
+	
+	
+	@ManyToOne  /*Estou dizendo que um restaurante tem uma ou várias cozinhas*/
+	private Cozinha cozinha; /*Fazendo a relação entre a tabela cozinha e restaurante*/
+	
 	
 }
