@@ -9,6 +9,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 
 import com.algaworks.algafood.AlgafoodApiApplication;
 import com.algaworks.algafood.domain.model.Cozinha;
+import com.algaworks.algafood.domain.repository.CozinhaRepository;
 
 public class BuscaCozinhaMain {
 
@@ -17,7 +18,7 @@ public class BuscaCozinhaMain {
 				.web(WebApplicationType.NONE)
 				.run(args); /* Faz a simulação de um aplicativo Spring Web para iniciar e parar na execução*/
 		
-		CadastroCozinha cadastroCozinha = applicationContext.getBean(CadastroCozinha.class);/*Pega um Bean Spring*/
+		CozinhaRepository cadastroCozinha = applicationContext.getBean(CozinhaRepository.class);/*Pega um Bean Spring*/
 		
 		Cozinha cozinha = cadastroCozinha.buscar(2L); /*Instancia o metodo de busca do manager, passando ID 1L  (L = long*/
 		

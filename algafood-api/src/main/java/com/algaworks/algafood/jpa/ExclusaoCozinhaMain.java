@@ -9,6 +9,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 
 import com.algaworks.algafood.AlgafoodApiApplication;
 import com.algaworks.algafood.domain.model.Cozinha;
+import com.algaworks.algafood.domain.repository.CozinhaRepository;
 
 public class ExclusaoCozinhaMain {
 
@@ -17,13 +18,13 @@ public class ExclusaoCozinhaMain {
 				.web(WebApplicationType.NONE)
 				.run(args); /* Faz a simulação de um aplicativo Spring Web para iniciar e parar na execução*/
 		
-		CadastroCozinha cadastroCozinha = applicationContext.getBean(CadastroCozinha.class);/*Pega um Bean Spring*/
+		CozinhaRepository cozinhaRepository = applicationContext.getBean(CozinhaRepository.class);/*Pega um Bean Spring*/
 		
 		
 		Cozinha cozinha = new Cozinha(); /*Instancia a cozinha com ID 1*/
 		cozinha.setId(1L);
 		
 		
-		cadastroCozinha.remover(cozinha); /*chama na classe cadastroCozinha o método remover passando as informações a cima que é ID 1*/
+		cozinhaRepository.remover(cozinha); /*chama na classe cadastroCozinha o método remover passando as informações a cima que é ID 1*/
 	}
 }
