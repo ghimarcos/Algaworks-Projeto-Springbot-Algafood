@@ -25,10 +25,10 @@ public class Restaurante {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // *esse código diz que o ID tem que ser Auto Increment*//
 	private Long id;
 
-	@Column(name = "nom_restaurante", length = 30) /* Coluna na tabela com tamanho de 30 varchar */
+	@Column(name = "nom_restaurante", length = 30, nullable = false) /* Coluna na tabela com tamanho de 30 varchar */
 	private String nome;
 
-	@Column(name = "taxa_frete") /* Coluna na tabela */
+	@Column(name = "taxa_frete", nullable = false) /* Coluna na tabela com nome, e passando que não pode ser adicionado valor nulo */
 	private BigDecimal taxaFrete; /* Coluna na tabela do tipo BigDecimal */
 	
 	
